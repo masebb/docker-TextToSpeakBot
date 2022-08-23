@@ -39,4 +39,5 @@ alonetimeuntilstop = ${alonetimeuntilstop:-0}\n\
 maxmessagecount = ${maxmessagecount:-0}\n\
 /// END OF YOMIAGEBOT CONFIG ///\n\
         " > /TTSBot/config.txt;\
-    fi && java -jar -Dnogui=true /usr/bin/TextToSpeak-${TTSBotVer}.jar
+    fi &&\
+    cat /TTSBot/config.txt && java -jar -Dnogui=true /usr/bin/TextToSpeak-${TTSBotVer}.jar
