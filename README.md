@@ -5,7 +5,7 @@ OSSのテキスト読み上げDiscordBot [TextToSpeakBot](https://github.com/Cos
 
 ## Usage
 ```bash
-docker run -it ttsbot --name TTSBot --env token=<BOTTOKEN> --env owner=<USERID> --env prefix=<BOTCOMMANDPREFIX>
+docker run -it masebb/ttsbot --name TTSBot --env token=<BOTTOKEN> --env owner=<USERID> --env prefix=<BOTCOMMANDPREFIX>
 ```
 環境変数からconfigを生成します。基本的に環境変数名は[config.txt](https://github.com/Cosgy-Dev/TextToSpeakBot/releases/download/0.2.0-Beta.2/config.txt)の項目名と同じです。ですが、`status`はbashでは終了コードが代入されてしまうので変更する場合は代わりに`discordstatus`を使って変更してください(下に書いてあるdocker-compose.yamlを見るとよくわかります)
 
@@ -16,7 +16,7 @@ docker run -it ttsbot --name TTSBot --env token=<BOTTOKEN> --env owner=<USERID> 
 version: '3'
 services:
   TTSbot:
-    image: ttsbot:latest
+    image: masebb/ttsbot:latest
     environment:
       #必須
       - token=<Botトークン>
