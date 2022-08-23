@@ -1,0 +1,26 @@
+version: '3'
+services:
+  TTSbot:
+    image: ttsbot:latest
+    environment:
+      #必須
+      - token=<トークン>
+      - owner=<Bot管理者のユーザーID>
+      #オプション
+      # - prefix=<BOTのプレフィックス>(デフォルト: @<Bot名>)
+      # - altprefix=<BOTのサブプレフィックス>(デフォルト: なし)
+      # - game=<ゲームステータス名(〇〇をプレイ中)>(デフォルト: DEFAULT)
+      # - status=<BOTステータス (ONLINE,IDLE,DND,INVISIBLEのみ)>(デフォルト: ONLINE)
+      # - updatealeats=<真偽値(true or false)>(デフォルト: true)
+      # - alonetimeuntilstop=<数字(秒)  >(デフォルト: 0(無効))
+      # - maxmessagecount=<数字(文字数)  >(デフォルト: 0(disable))
+      ### 基本的にはデフォルト値のままで良い(触る必要がない) ###
+      # - dictionary=<DICTIONARY PATH>(デフォルト: /var/lib/mecab/dic/open-jtalk/naist-jdic)
+      # - voiceDirectory=<VOICE DIRECTORY PATH>(デフォルト: /usr/share/hts-voice)
+      ### 基本的にはデフォルト値のままで良い(触る必要がない) ###
+    restart: always
+    #ユーザデータの永続化をしたい場合コメントアウトしてください(./に散らかすので注意！)
+    # volumes:
+    #   - type: bind
+    #     source: ./
+    #     target: /TTSBot
