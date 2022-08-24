@@ -1,5 +1,6 @@
 # TextToSpeakBotを面倒な設定いらずにDockerコンテナの上で動かす
 ![](https://img.shields.io/docker/pulls/masebb/ttsbot)
+
 OSSのテキスト読み上げDiscordBot [TextToSpeakBot](https://github.com/Cosgy-Dev/TextToSpeakBot)を音声データのダウンロードなどの設定いらずでコンテナの上で動くようにしたDockerfileです(ベースイメージはUbuntu22.04)
 
 最低限使えるようにすることが目標のため、[公式のセットアップ方法](https://www.cosgy.dev/2021/09/09/post-476/)に沿って音声データは[mmdagentプロジェクト](https://sourceforge.net/projects/mmdagent/)に内包されている`.htsvoice`ファイルを使用するようにしています。そのためこのDockerimageでのボイスの種類は`mei`、`takumi`、`slt`のみ使えます
