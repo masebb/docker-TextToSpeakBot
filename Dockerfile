@@ -1,6 +1,6 @@
 FROM ubuntu:22.04
 
-ARG TTSBotVer=0.2.0-Beta.2
+ARG TTSBotVer=0.3.0
 ARG MMDAgentVer=1.8
 
 WORKDIR /TTSBot/
@@ -18,11 +18,10 @@ RUN wget http://sourceforge.net/projects/mmdagent/files/MMDAgent_Example/MMDAgen
      cp -r ./MMDAgent_Example-${MMDAgentVer}/Voice/**/*.htsvoice /usr/share/hts-voice/ &&\ 
      rm -rf MMDAgent_Example-${MMDAgentVer}.zip MMDAgent_Example-${MMDAgentVer}/ &&\
     #本体インストール(jarファイル)
-    wget -P /usr/bin/ https://github.com/Cosgy-Dev/TextToSpeakBot/releases/download/${TTSBotVer}/TextToSpeak-${TTSBotVer}.jar
+    wget -P /usr/bin/ https://github.com/Cosgy-Dev/TextToSpeakBot/releases/download/${TTSBotVer}/TextToSpeak-${TTSBotVer}-All.jar
 
 ENV TTSBotVer ${TTSBotVer}
 #コンフィグ書き込み(/TTSBotディレクトリにconfig.txtがない場合)→Bot起動
-#dockerfileにif文を書くな！！！！！！(いい方法が思いつかない)
 CMD if [ ! -e /TTSBot/config.txt ]; then \
         echo "\
 /// START OF YOMIAGEBOT CONFIG ///\n\
