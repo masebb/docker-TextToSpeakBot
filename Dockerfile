@@ -1,4 +1,4 @@
-FROM ubuntu:22.04
+FROM debian:bullseye-slim
 
 ARG TTSBotVer=0.3.0
 ARG MMDAgentVer=1.8
@@ -12,6 +12,9 @@ RUN apt-get update \
 ENV LANG ja_JP.utf8
 
 RUN apt update -y &&\
+    apt install -y software-properties-common &&\
+    apt-add-repository -y contrib &&\
+    apt update -y &&\
     apt install -y wget unzip default-jre open-jtalk open-jtalk-mecab-naist-jdic hts-voice-nitech-jp-atr503-m001
 RUN wget http://sourceforge.net/projects/mmdagent/files/MMDAgent_Example/MMDAgent_Example-${MMDAgentVer}/MMDAgent_Example-${MMDAgentVer}.zip &&\
      unzip MMDAgent_Example-${MMDAgentVer}.zip &&\
