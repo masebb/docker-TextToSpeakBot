@@ -14,7 +14,6 @@ ENV LANG ja_JP.utf8
 RUN apt update -y &&\
     apt install -y software-properties-common &&\
     apt-add-repository -y contrib &&\
-    apt update -y &&\
     apt install -y wget unzip default-jre open-jtalk open-jtalk-mecab-naist-jdic hts-voice-nitech-jp-atr503-m001
 RUN wget http://sourceforge.net/projects/mmdagent/files/MMDAgent_Example/MMDAgent_Example-${MMDAgentVer}/MMDAgent_Example-${MMDAgentVer}.zip &&\
      unzip MMDAgent_Example-${MMDAgentVer}.zip &&\
@@ -31,7 +30,7 @@ CMD if [ ! -e /TTSBot/config.txt ]; then \
 token = ${token}\n\
 owner = ${owner}\n\
 prefix = \"${prefix}\"\n\
-altprefix = \"${altprefi:-なし}\"\n\
+altprefix = \"${altprefix:-なし}\"\n\
 game = \"${game:-DEFAULT}\"\n\
 status = ${discordstatus:-ONLINE}\n\
 updatealerts = ${updatealerts:-true}\n\
