@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-ARG TTSBotVer=0.3.0
+ARG TTSBotVer=0.3.1
 ARG MMDAgentVer=1.8
 
 WORKDIR /TTSBot/
@@ -14,13 +14,14 @@ ENV LANG ja_JP.utf8
 RUN apt update -y &&\
     apt install -y software-properties-common &&\
     apt-add-repository -y contrib &&\
+    apt update -y &&\
     apt install -y wget unzip default-jre open-jtalk open-jtalk-mecab-naist-jdic hts-voice-nitech-jp-atr503-m001
 RUN wget http://sourceforge.net/projects/mmdagent/files/MMDAgent_Example/MMDAgent_Example-${MMDAgentVer}/MMDAgent_Example-${MMDAgentVer}.zip &&\
      unzip MMDAgent_Example-${MMDAgentVer}.zip &&\
      cp -r ./MMDAgent_Example-${MMDAgentVer}/Voice/**/*.htsvoice /usr/share/hts-voice/ &&\ 
      rm -rf MMDAgent_Example-${MMDAgentVer}.zip MMDAgent_Example-${MMDAgentVer}/ &&\
     #本体インストール(jarファイル)
-    wget -P /usr/bin/ https://github.com/Cosgy-Dev/TextToSpeakBot/releases/download/${TTSBotVer}/TextToSpeak-${TTSBotVer}-All.jar
+    wget -P /usr/bin/ https://github.com/Cosgy-Dev/TextToSpeakBot/releases/download/${TTSBotVer}/TextToSpeak-${TTSBotVer}.jar
 
 ENV TTSBotVer ${TTSBotVer}
 #コンフィグ書き込み(/TTSBotディレクトリにconfig.txtがない場合)→Bot起動
