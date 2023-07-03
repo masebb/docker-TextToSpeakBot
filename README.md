@@ -1,13 +1,15 @@
-# TextToSpeakBotを面倒な設定いらずにDockerコンテナの上で動かす
-![](https://img.shields.io/docker/pulls/masebb/ttsbot)
+## イメージ配布元をGitHub Packagesに移動しました
+DockerHubからGithub Packagesに移行しました。今後DockerHub上のイメージは更新されません
 
-OSSのテキスト読み上げDiscordBot [TextToSpeakBot](https://github.com/Cosgy-Dev/TextToSpeakBot)を音声データのダウンロードなどの設定いらずでコンテナの上で動くようにしたDockerfileです(ベースイメージはUbuntu22.04)
+## TextToSpeakBotを面倒な設定いらずにDockerコンテナの上で動かす
+
+OSSのテキスト読み上げDiscordBot [TextToSpeakBot](https://github.com/Cosgy-Dev/TextToSpeakBot)を音声データのダウンロードなどの設定いらずでコンテナの上で動くようにしたDockerimageです
 
 最低限使えるようにすることが目標のため、[公式のセットアップ方法](https://www.cosgy.dev/2021/09/09/post-476/)に沿って音声データは[mmdagentプロジェクト](https://sourceforge.net/projects/mmdagent/)に内包されている`.htsvoice`ファイルを使用するようにしています。そのためこのDockerimageでのボイスの種類は`mei`、`takumi`、`slt`のみ使えます
 
 ## Usage
 ```bash
-docker run -it masebb/ttsbot --name TTSBot --env token=<BOTTOKEN> --env owner=<USERID> --env prefix=<BOTCOMMANDPREFIX>
+docker run -it ghcr.io/masebb/ttsbot --name TTSBot --env token=<BOTTOKEN> --env owner=<USERID> --env prefix=<BOTCOMMANDPREFIX>
 ```
 環境変数からconfigを生成します。基本的に環境変数名は[config.txt](https://github.com/Cosgy-Dev/TextToSpeakBot/releases/download/0.2.0-Beta.2/config.txt)の項目名と同じです。ですが、`status`はbashでは終了コードが代入されてしまうので変更する場合は代わりに`discordstatus`を使って変更してください(下に書いてあるdocker-compose.yamlを見るとよくわかります)
 
@@ -18,7 +20,7 @@ docker run -it masebb/ttsbot --name TTSBot --env token=<BOTTOKEN> --env owner=<U
 version: '3'
 services:
   TTSbot:
-    image: masebb/ttsbot:latest
+    image: ghcr.io/masebb/ttsbot:latest
     environment:
       #必須
       - token=<Botトークン>
