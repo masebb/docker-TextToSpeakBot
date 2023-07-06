@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-ARG TTSBotVer=0.3.1
+ARG TTSBotVer=0.4.0-beta.3
 ARG MMDAgentVer=1.8
 
 WORKDIR /TTSBot/
@@ -27,7 +27,6 @@ ENV TTSBotVer ${TTSBotVer}
 #コンフィグ書き込み(/TTSBotディレクトリにconfig.txtがない場合)→Bot起動
 CMD if [ ! -e /TTSBot/config.txt ]; then \
         echo "\
-/// START OF YOMIAGEBOT CONFIG ///\n\
 token = ${token}\n\
 owner = ${owner}\n\
 prefix = \"${prefix}\"\n\
@@ -39,7 +38,6 @@ dictionary = \"${dictionary:-/var/lib/mecab/dic/open-jtalk/naist-jdic}\"\n\
 voiceDirectory = \"${voiceDirectory:-/usr/share/hts-voice}\"\n\
 alonetimeuntilstop = ${alonetimeuntilstop:-0}\n\
 maxmessagecount = ${maxmessagecount:-0}\n\
-/// END OF YOMIAGEBOT CONFIG ///\n\
         " > /TTSBot/config.txt;\
     fi &&\
     cat /TTSBot/config.txt && java -jar -Dnogui=true /usr/bin/TextToSpeak-${TTSBotVer}.jar
