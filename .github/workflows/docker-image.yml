@@ -29,5 +29,8 @@ jobs:
       with:
         platforms: linux/amd64,linux/arm64
         context: .
+        provenance: false
         push: true
-        tags: ghcr.io/masebb/ttsbot:${{ github.ref_name }}
+        tags: |
+          ghcr.io/masebb/ttsbot:${{ github.ref_name }}
+          ghcr.io/masebb/ttsbot:latest
