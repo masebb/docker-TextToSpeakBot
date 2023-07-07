@@ -1,5 +1,5 @@
 ## イメージ配布元をGitHub Packagesに移動しました
-DockerHubからGithub Packagesに移行しました。今後DockerHub上のイメージは更新されません
+DockerHubから[Github Packages](https://github.com/masebb/docker-TextToSpeakBot/pkgs/container/ttsbot)に移行しました。今後DockerHub上のイメージは更新されません
 
 ## TextToSpeakBotを面倒な設定いらずにDockerコンテナの上で動かす
 
