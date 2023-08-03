@@ -21,7 +21,7 @@ RUN wget http://sourceforge.net/projects/mmdagent/files/MMDAgent_Example/MMDAgen
      cp -r ./MMDAgent_Example-${MMDAgentVer}/Voice/**/*.htsvoice /usr/share/hts-voice/ &&\ 
      rm -rf MMDAgent_Example-${MMDAgentVer}.zip MMDAgent_Example-${MMDAgentVer}/ &&\
     #本体インストール(jarファイル)
-    wget -P /usr/bin/ https://github.com/Cosgy-Dev/TextToSpeakBot/releases/download/${TTSBotVer}/TextToSpeak-${TTSBotVer}-All.jar
+    wget -P /usr/bin/ https://github.com/Cosgy-Dev/TextToSpeakBot/releases/download/${TTSBotVer}/TextToSpeak-${TTSBotVer}.jar
 
 ENV TTSBotVer ${TTSBotVer}
 #コンフィグ書き込み(/TTSBotディレクトリにconfig.txtがない場合)→Bot起動
@@ -40,4 +40,4 @@ alonetimeuntilstop = ${alonetimeuntilstop:-0}\n\
 maxmessagecount = ${maxmessagecount:-0}\n\
         " > /TTSBot/config.txt;\
     fi &&\
-    cat /TTSBot/config.txt && java -jar -Dnogui=true /usr/bin/TextToSpeak-${TTSBotVer}-All.jar
+    cat /TTSBot/config.txt && java -jar -Dnogui=true /usr/bin/TextToSpeak-${TTSBotVer}.jar
