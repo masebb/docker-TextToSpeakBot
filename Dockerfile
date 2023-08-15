@@ -1,6 +1,6 @@
 FROM debian:bullseye-slim
 
-ARG TTSBotVer=0.4.2
+ARG TTSBotVer=0.4.3
 ARG MMDAgentVer=1.8
 
 WORKDIR /TTSBot/
